@@ -1,0 +1,58 @@
+button,
+input,
+select,
+textarea {
+	box-sizing: border-box;
+}
+textarea {
+	width: 100%;
+	resize: vertical;
+}
+
+button.add::before {
+	content: "➕ ";
+}
+button.remove::before {
+	content: "❌ ";
+}
+button.save::before {
+	content: "💾 ";
+}
+
+.diy-grid {
+	display: grid;
+}
+.diy-grid#dpaBaseArea {
+	grid-template-columns: auto 1fr;
+	column-gap: 1em;
+	row-gap: .5em;
+}
+.diy-grid#dpaDiscArea {
+	grid-template-columns: 1.5fr 1fr 1fr 1fr;
+	column-gap: .5em;
+}
+.diy-grid#dpaDiscSelectArea {
+	grid-template-rows: auto 1fr auto;
+}
+.diy-grid.user-search-container {
+	grid-template-columns: auto 1fr;
+	column-gap: .5em;
+}
+.diy-grid input,
+.diy-grid select {
+	width: 100%;
+}
+
+.user-list {
+	margin: 0;
+}
+
+legend > label {
+	cursor: pointer;
+}
+fieldset > input[type="checkbox"].collapse {
+	display: none;
+}
+fieldset > input[type="checkbox"].collapse:checked ~ * {
+	display: none;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>DPA CoverSheet</title>
+		<!link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="dpa.css"/>
+	</head>
+	<body>
+		<form id="dpaBaseDataForm">
+			<input type="hidden" name="dpaId" value="@Model.dpaId"/>
+			<label for="dpaNameInput">DPA Name</label>
+			<input id="dpaNameInput" name="dpaName"/>
+			<button type="submit" class="save">Save</button>
+		</form>
+		<fieldset form="dpaBaseDataForm" class="diy-grid" id="dpaBaseArea">
+			<legend><label for="dpaBaseCollapse">DPA Data</label></legend>
+			<input type="checkbox" id="dpaBaseCollapse" class="collapse"/>
+			<label for="dpaProjectNameInput">Project Name</label>
+			<input id="dpaProjectNameInput" form="dpaBaseDataForm"/>
+			<label for="dpaCustomerInput">Customer</label>
+			<input id="dpaCustomerInput" name="Customer" form="dpaBaseDataForm"/>
+			<label for="dpaStateSelect">DPA State</label>
+			<select id="dpaStateSelect" name="dpaStateId" form="dpaBaseDataForm">
+				<option>Open</option>
+				<option>In Discussion</option>
+				<option>Held</option>
+				<option>Closed</option>
+				<option>Abandoned</option>
+			</select>
+			<label for="dpaFpListSelect">Fault Path List</label>
+			<select id="dpaFpListSelect" name="faultPathList" form="dpaBaseDataForm">
+				<option>dummy</option>
+			</select>
+			<label for="dpaDpListSelect">Diagnostic Possibility List</label>
+			<select id="dpaDpListSelect" name="diagnosticPossibilityList" form="dpaBaseDataForm">
+				<option>dummy</option>
+			</select>
+			<label for="dpaFailureListSelect">Failure Master List</label>
+			<select id="dpaFailureListSelect" name="failureMasterList" form="dpaBaseDataForm">
+				<option>dummy</option>
+			</select>
+			<label for="dpaSpecASelect">Project Specific Classification A</label>
+			<select id="dpaSpecASelect" name="ProjectSpecificListA" form="dpaBaseDataForm">
+				<option>dummy</option>
+			</select>
+			<label for="dpaSpecBSelect">Project Specific Classification B</label>
+			<select id="dpaSpecBSelect" name="ProjectSpecificListB" form="dpaBaseDataForm">
+				<option>dummy</option>
+			</select>
+			<label for="dpaSpecCSelect">Project Specific Classification C</label>
+			<select id="dpaSpecCSelect" name="ProjectSpecificListC" form="dpaBaseDataForm">
+				<option>dummy</option>
+			</select>
+			<span id="dpaAssignorListHeader">Assignors</span>
+			<div>
+				<ul id="dpaAssignorsList" aria-labelledby="dpaAssignorListHeader" class="user-list">
+					<li><button type="button" class="remove" onclick="alert('Not implemented here!')">Remove</button> dummy 1</li>
+					<li><button type="button" class="remove" onclick="alert('Not implemented here!')">Remove</button> dummy 2</li>
+				</ul>
+				<div class="diy-grid user-search-container">
+					<label for="dpaAssignorInput">User Search</label>
+					<input type="search" id="dpaAssignorInput" placeholder="Type here&hellip;"/>
+				</div>
+				<ul id="dpaAssignorSearchResults" class="user-list">
+				</ul>
+			</div>
+		</fieldset>
+		<fieldset form="dpaBaseDataForm" class="diy-grid" id="dpaDiscArea">
+			<legend><label for="dpaDiscCollapse">Meeting Details</label></legend>
+			<input type="checkbox" id="dpaDiscCollapse" class="collapse" checked=""/>
+			<div class="diy-grid" id="dpaDiscSelectArea">
+				<label for="dpaDiscussionSelect">Please select or create a Meeting to modify</label><!probably too long a text for a label>
+				<select multiple="" id="dpaDiscussionSelect" onclick="alert('Not implemented here!')">
+					<option>dummy 1</option>
+					<option>dummy 2</option>
+				</select>
+				<div>
+					<button type="button" class="add" onclick="alert('Not implemented here!')">Create</button>
+					<button type="button" class="remove" disabled="">Delete</button>
+					<button type="submit" class="save" form="dpaDiscussionForm" disabled="">Save</button>
+				</div>
+			</div>
+			<div>
+				<label for="dpaDiscDateInput">Meeting Date</label>
+				<br/>
+				<input type="date" id="dpaDiscDateInput"/>
+				<br/>
+				<label for="dpaDiscStartTimeInput">Start Time</label>
+				<br/>
+				<input type="time" id="dpaDiscStartTimeInput"/>
+				<br/>
+				<label for="dpaDiscEndTimeInput">End Time</label>
+				<br/>
+				<input type="time" id="dpaDiscEndTimeInput"/>
+			</div>
+			<div>
+				<span id="dpaDiscPartListHeader">Meeting Participants</span>
+				<ul id="dpaDiscPartList" aria-labelledby="dpaDiscPartListHeader" class="user-list">
+					<li><button type="button" class="remove" onclick="alert('Not implemented here!')">Remove</button> dummy 1</li>
+					<li><button type="button" class="remove" onclick="alert('Not implemented here!')">Remove</button> dummy 2</li>
+				</ul>
+				<div class="diy-grid user-search-container">
+					<label for="dpaAssignorInput">User Search</label>
+					<input type="search" id="dpaAssignorInput" placeholder="Type here&hellip;"/>
+				</div>
+				<ul id="dpaDiscPartSearchResults" class="user-list">
+				</ul>
+			</div>
+			<div>
+				<label for="dpaDiscCommentsArea">Meeting Comments</label>
+				<br/>
+				<textarea id="dpaDiscCommentsArea" name="Comments"></textarea>
+			</div>
+		</fieldset>
+		<fieldset form="dpaBaseDataForm" class="diy-grid">
+			<legend><label for="dpaMiscCollapse">Additional Info<label></legend>
+			<input type="checkbox" id="dpaMiscCollapse" class="collapse" checked=""/>
+			<label for="dpaGoalsArea">DPA Goals</label>
+			<textarea id="dpaGoalsArea" name="goal" form="dpaBaseDataForm"></textarea>
+			<label for="dpaMeasuresArea">DPA Measures</label>
+			<textarea id="dpaMeasuresArea" name="measures" form="dpaBaseDataForm"></textarea>
+			<label for="dpaResultsArea">DPA Results</label>
+			<textarea id="dpaResultsArea" name="result" form="dpaBaseDataForm"></textarea>
+		</fieldset>
+	</body>
+</html>
